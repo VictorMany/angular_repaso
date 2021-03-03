@@ -3,7 +3,6 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { DishesListComponent } from './components/dishes-list/dishes-list.component';
 ///////////////////////////
 // Módulo que nos permite hacer peticiones http
 import { HttpClientModule } from '@angular/common/http';
@@ -17,15 +16,16 @@ import { AngularFireAuthModule } from '@angular/fire/auth';
 import { AngularFirestoreModule } from '@angular/fire/firestore';
 import { AngularFireStorageModule } from '@angular/fire/storage';
 import { NavBarComponent } from './components/nav-bar/nav-bar.component';
+import { ComponentsModule } from './components/components.module';
 
 @NgModule({
   declarations: [
     AppComponent,
-    DishesListComponent,
     NavBarComponent
   ],
   imports: [
     BrowserModule,
+    ComponentsModule,
     AppRoutingModule,
     // Conexión con un proyecto de firebase
     AngularFireModule.initializeApp(environment.firebaseConfig),
