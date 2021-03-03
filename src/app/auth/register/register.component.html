@@ -1,1 +1,21 @@
-<p>register works!</p>
+<form [formGroup]="form">
+    <h1 class="text-center"> Registro de usuarios</h1>
+
+    <div class="mb-3 form-group">
+        <label for="exampleInputEmail1" class="form-label">Email address</label>
+        <input type="email" class="form-control" id="exampleInputEmail1" formControlName="email"
+            aria-describedby="emailHelp">
+        <small>Campo requerido</small>
+    </div>
+
+    <div class="mb-3 form-group">
+        <label for="exampleInputPassword1" class="form-label">Password</label>
+        <input type="password" class="form-control" id="exampleInputPassword1" formControlName="password">
+        <small>Campo requerido</small>
+    </div>
+
+
+    <div class="d-flex" style="justify-content: flex-end;">
+        <button class="btn btn-primary ml-1" (click)="onRegister()"> Registrarse </button>
+    </div>
+</form>
