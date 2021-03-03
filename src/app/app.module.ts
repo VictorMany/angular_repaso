@@ -18,7 +18,6 @@ import { AngularFirestoreModule } from '@angular/fire/firestore';
 import { AngularFireStorageModule } from '@angular/fire/storage';
 import { NavBarComponent } from './components/nav-bar/nav-bar.component';
 
-
 @NgModule({
   declarations: [
     AppComponent,
