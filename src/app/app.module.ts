@@ -1,27 +1,22 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 ///////////////////////////
 // Módulo que nos permite hacer peticiones http
 import { HttpClientModule } from '@angular/common/http';
-
 // Ennvironment
 import { environment } from '../environments/environment';
-
 // Modulos de firebase
 import { AngularFireModule } from '@angular/fire';
 import { AngularFireAuthModule } from '@angular/fire/auth';
 import { AngularFirestoreModule } from '@angular/fire/firestore';
 import { AngularFireStorageModule } from '@angular/fire/storage';
-import { NavBarComponent } from './components/nav-bar/nav-bar.component';
 import { ComponentsModule } from './components/components.module';
 
 @NgModule({
   declarations: [
-    AppComponent,
-    NavBarComponent
+    AppComponent
   ],
   imports: [
     BrowserModule,
@@ -35,8 +30,9 @@ import { ComponentsModule } from './components/components.module';
     AngularFirestoreModule,
     // Módulo para alamcenar archivos en firebase
     AngularFireStorageModule,
+    
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
 export class AppModule { }
