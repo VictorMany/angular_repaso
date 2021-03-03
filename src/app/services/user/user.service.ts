@@ -1,19 +1,18 @@
 import { HttpClient } from '@angular/common/http';
-import { Injectable } from '@angular/core';
-import { FirebaseApp } from '@angular/fire';
-import { AngularFireAuth } from '@angular/fire/auth';
-import { AngularFirestore, AngularFirestoreCollection, DocumentReference } from '@angular/fire/firestore';
-import { AngularFireStorage } from '@angular/fire/storage';
-import { Observable } from 'rxjs';
+import { Injectable, OnInit } from '@angular/core';
+import { Observable, Observer, Subject } from 'rxjs';
 import { IUser } from 'src/app/interfaces/user/user.interface';
 import { environment } from 'src/environments/environment';
-
+import { AngularFireAuth } from '@angular/fire/auth';
 import firebase from 'firebase/app';
+import { AngularFirestore, AngularFirestoreCollection, DocumentReference } from '@angular/fire/firestore';
+import { AngularFireStorage } from '@angular/fire/storage';
 
 
 @Injectable({
   providedIn: 'root'
 })
+
 
 //Hacemos el arreglo de usuarios hardcodeados
 export class UserService {
