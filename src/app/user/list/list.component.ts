@@ -39,11 +39,7 @@ export class ListComponent implements OnInit {
   }
 
   async onUpdate(user: IUser): Promise<void> {
-    try{
-      await this.userService.updateUser(user._id, user);
-    } catch(error) {
-      console.log(error)
-    }
+    this.router.navigate(['/', 'users', user._id]);
   }
 
 }

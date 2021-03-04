@@ -39,7 +39,8 @@ export class UserService {
     private angularFirestore: AngularFirestore, //Hacer las conexiones al almacenamiento
     private angularFireStorage: AngularFireStorage, //Almacenamiento
   ) {
-    this.usersCollection = angularFirestore.collection<IUser>('users');
+    this.usersCollection = angularFirestore.collection<IUser>('users', ref => 
+    ref.orderBy('email', 'asc'));
   }
 
   //Obtener todos los usuarios
