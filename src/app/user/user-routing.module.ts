@@ -5,7 +5,7 @@ import { NewComponent } from './new/new.component';
 
 const routes: Routes = [
   { path: 'list', component: ListComponent },
-  { path: 'new', component: NewComponent },
+  { path: ':userid', component: NewComponent },
   { path: '**', redirectTo: 'list' },
 ];
 
@@ -13,4 +13,5 @@ const routes: Routes = [
   imports: [RouterModule.forChild(routes)],
   exports: [RouterModule]
 })
+
 export class UserRoutingModule { }

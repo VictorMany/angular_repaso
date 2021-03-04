@@ -7,6 +7,7 @@ import { AngularFireAuth } from '@angular/fire/auth';
 import firebase from 'firebase/app';
 import { AngularFirestore, AngularFirestoreCollection, DocumentReference } from '@angular/fire/firestore';
 import { AngularFireStorage } from '@angular/fire/storage';
+import 'firebase/firestore';
 
 
 @Injectable({
@@ -38,12 +39,15 @@ export class UserService {
     private angularFirestore: AngularFirestore, //Hacer las conexiones al almacenamiento
     private angularFireStorage: AngularFireStorage, //Almacenamiento
   ) {
-    this.usersCollection = angularFirestore.collection<IUser>('users');
+    this.usersCollection = angularFirestore.collection<IUser>('users', ref =>
+      ref.orderBy('email', "asc"));
   }
 
   //Obtener todos los usuarios
   getUsersFirebase(): Observable<IUser[]> {
+
     return this.usersCollection.valueChanges({ idField: '_id' });
+
   }
 
   getUserById(id: string): Observable<firebase.firestore.DocumentSnapshot<IUser>> {

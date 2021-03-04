@@ -14,7 +14,7 @@ import { takeUntil, takeWhile } from 'rxjs/operators';
 export class ListComponent implements OnInit {
   users: IUser[]; //-->
   usersObs: Subscription; //-->
-  isActive: boolean;
+  isActive: boolean; //-->
 
   constructor(
     private userService: UserService,
@@ -26,8 +26,11 @@ export class ListComponent implements OnInit {
     this.isActive = true;
     this.usersObs = this.userService.getUsersFirebase().pipe(takeWhile(() => this.isActive)).subscribe((users: IUser[]) => {
       this.users = users;
+      
       console.log(users);
     });
+
+    
   }
 
 
@@ -40,11 +43,7 @@ export class ListComponent implements OnInit {
   }
 
   async onUpdate(user: IUser): Promise<void> {
-    try {
-      await this.userService.updateUser(user._id, user);
-    } catch (error) {
-      console.log(error)
-    }
+    this.router.navigate(['/', 'users', user._id]);
   }
 
 }
