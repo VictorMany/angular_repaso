@@ -23,6 +23,7 @@ import { ComponentsModule } from './components/components.module';
     BrowserModule,
     ComponentsModule,
     AppRoutingModule,
+    HttpClientModule,
     // Conexión con un proyecto de firebase
     AngularFireModule.initializeApp(environment.firebaseConfig),
     // Modulo de autenticación con firebase
