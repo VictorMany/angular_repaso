@@ -1,0 +1,22 @@
+
+<table class="table">
+    <thead>
+      <tr>
+        <th scope="col">id</th>
+        <th scope="col">email</th>
+        <th scope="col">password</th>
+      </tr>
+    </thead>
+    
+    <tbody>
+      <tr *ngFor="let user of users; index as index;">
+        <th scope="row"> {{ user._id }} </th>
+        <td> {{ user.email }}</td>
+        <td> {{ user.password }} </td>
+        <td>
+            <button (click)="onDelete(user)"> Eliminar </button>
+            <button (click)="onUpdate(user)"> Actualizar </button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
