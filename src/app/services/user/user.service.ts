@@ -35,7 +35,7 @@ export class UserService {
   constructor(
     // Para usar la clase HttpClient hay que agregar en el módulo el módulo de esta clase
     private http: HttpClient,
-    private angularFireAuth: AngularFireAuth,  //Google 
+    private angularFireAuth: AngularFireAuth,  //Firebase :) 
     private angularFirestore: AngularFirestore, //Hacer las conexiones al almacenamiento
     private angularFireStorage: AngularFireStorage, //Almacenamiento
   ) {
@@ -63,6 +63,18 @@ export class UserService {
   deleteUserById(id: string): Promise<void> {
     return this.usersCollection.doc(id).delete();
   }
-  //
+  
+  login(email: string, password: string): Promise<any> {
+    return this.angularFireAuth.signInWithEmailAndPassword(email, password);
+  }
+
+  /* loginDatabase(email: string, password: string): Promise<any> {
+    return this.angularFirestore.
+  } */
+
+  loginWithGoogle(): Promise<firebase.auth.UserCredential> {
+    return this.angularFireAuth.signInWithPopup(new firebase.auth.GoogleAuthProvider());
+  }
+
 }
 
