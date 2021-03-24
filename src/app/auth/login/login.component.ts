@@ -28,7 +28,6 @@ export class LoginComponent implements OnInit {
 
   async onLogin(): Promise<void> {
     if (this.form.valid) {
-
       try {
         // Inicio de sesión con firebase
         const user = await this.userService.login(

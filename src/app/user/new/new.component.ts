@@ -71,6 +71,7 @@ export class NewComponent implements OnInit {
   }
 
   async onAdd(): Promise<void> {
+    console.log(this.form);
     if (this.form.valid) {
       const firebaseResponse = await this.userService.addUser(this.form.value);
       const user = await firebaseResponse.get();

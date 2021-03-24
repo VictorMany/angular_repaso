@@ -1,0 +1,35 @@
+<div [formGroup]="form">
+
+    <div class="form-group">
+        <label for="exampleInputNombre1">Nombre</label>
+        <input formControlName="nombre" type="nombre" class="form-control" id="exampleInputNombre1"
+            aria-describedby="NombreHelp" placeholder="Enter nombre">
+        <div *ngIf="this.form.get('nombre').touched && this.form.get('nombre').invalid">
+            <!-- hasError devuelve un valor booleano, true si tien un error y false en caso contrario  -->
+            <small *ngIf="this.form.get('nombre').getError('required')"> El campo nombre es requerido </small>
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="exampleInputDescripcion1">Descripcion</label>
+        <input formControlName="descripcion" type="descripcion" class="form-control" id="exampleInputDescripcion1"
+            placeholder="Descripción">
+        <div *ngIf="this.form.get('descripcion').touched && this.form.get('descripcion').invalid">
+            Campo descripcion es requerido
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="exampleInputPrecio1">Precio</label>
+        <input formControlName="precio" type="number" class="form-control" id="exampleInputPrecio1" placeholder="precio"
+            min=0>
+        <div *ngIf="this.form.get('precio').touched && this.form.get('precio').invalid">
+            Campo Precio es requerido
+        </div>
+    </div>
+
+    <div class="form-group" style="border-radius: 50%; display: flex; flex-direction: column; align-items: center;">
+        <img [src]="img" alt="" width="150px" height="150px">
+        <input class="btn btn-primary" type="file" (change)="onChange($event)">
+    </div>
+
+    <button (click)="onAdd()" type="submit" class="btn btn-primary"> Agregar</button>
+</div>

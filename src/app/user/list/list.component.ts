@@ -12,9 +12,9 @@ import { takeUntil, takeWhile } from 'rxjs/operators';
   styleUrls: ['./list.component.sass']
 })
 export class ListComponent implements OnInit {
-  users: IUser[]; //-->
-  usersObs: Subscription; //-->
-  isActive: boolean; //-->
+  users: IUser[]; //-->            
+  usersObs: Subscription; //-->  
+  isActive: boolean; //-->      
 
   constructor(
     private userService: UserService,
@@ -29,10 +29,7 @@ export class ListComponent implements OnInit {
       
       console.log(users);
     });
-
-    
   }
-
 
   async onDelete(user: IUser): Promise<void> {
     try {
@@ -45,5 +42,4 @@ export class ListComponent implements OnInit {
   async onUpdate(user: IUser): Promise<void> {
     this.router.navigate(['/', 'users', user._id]);
   }
-
 }
