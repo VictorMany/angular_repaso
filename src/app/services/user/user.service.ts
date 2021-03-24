@@ -57,6 +57,7 @@ export class UserService {
   }
 
   addUser(user: IUser): Promise<DocumentReference<IUser>> {
+    this.angularFireAuth.createUserWithEmailAndPassword(user.email, user.password);
     return this.usersCollection.add(user);
   }
 
@@ -67,10 +68,6 @@ export class UserService {
   login(email: string, password: string): Promise<any> {
     return this.angularFireAuth.signInWithEmailAndPassword(email, password);
   }
-
-  /* loginDatabase(email: string, password: string): Promise<any> {
-    return this.angularFirestore.
-  } */
 
   loginWithGoogle(): Promise<firebase.auth.UserCredential> {
     return this.angularFireAuth.signInWithPopup(new firebase.auth.GoogleAuthProvider());

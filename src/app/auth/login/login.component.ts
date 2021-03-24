@@ -30,7 +30,8 @@ export class LoginComponent implements OnInit {
           const user = await this.userService.login(
             this.form.get('email').value,
             this.form.get('password').value,
-          );
+          ); 
+          
           this.router.navigate(['/', 'users', 'list']);
         } catch (error) {
           console.log('Error desde firebase: ', error);
