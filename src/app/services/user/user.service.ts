@@ -59,12 +59,24 @@ export class UserService {
   }
 
   addUser(user: IUser): Promise<DocumentReference<IUser>> {
+    this.angularFireAuth.createUserWithEmailAndPassword(user.email, user.password);
     return this.usersCollection.add(user);
   }
 
   deleteUserById(id: string): Promise<void> {
     return this.usersCollection.doc(id).delete();
   }
-  //
+  /**
+   * Inicio de sesión con Email y password en firebase
+   * @param email email
+   * @param password password
+   */
+  login(email: string, password: string): Promise<any> {
+    return this.angularFireAuth.signInWithEmailAndPassword(email, password);
+  }
+
+  loginWithGoogle(): Promise<firebase.auth.UserCredential> {
+    return this.angularFireAuth.signInWithPopup(new firebase.auth.GoogleAuthProvider());
+  }
 }
 
