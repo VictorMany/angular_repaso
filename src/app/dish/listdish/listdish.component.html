@@ -1,0 +1,49 @@
+<div class="row">
+    <div class="col-3">
+       <button class="btn btn-danger addNotaButton" (click)="addDish()">Add Dish</button>
+    </div>
+    <div class="col-6">
+       <div class="row width100 customContainer">
+          <div *ngFor="let res of (this.dish)" class="col-12">
+             <!--USAMOS PIPE PARA PODER LISTAR UN OBSERVABLE-->
+             <div class="card width100 sidebar">
+                <div class="card-body">
+                   <div class="row">
+                      <div class="col-10">
+                         <div class="row">
+                            <div class="col-10">
+                               <h5 class="card-title">{{res.nombre}}</h5>
+                               <p class="card-text">{{res.descripcion}}</p>
+                               <p class="card-text">{{res.precio}}</p>
+                               <a href="">
+                                  <div class="row">
+                                     <div class="class">
+                                        <img class="cuentaGoogle"
+                                           src="https://lh3.googleusercontent.com/JDFOyo903E9WGstK0YhI2ZFOKR3h4qDxBngX5M8XJVBZFKzOBoxLmk3OVlgNw9SOE-HfkNgb=w32-rw"
+                                           alt="">
+                                     </div>
+                                     <div class="class">
+                                        <h6>Ver covertura completa</h6>
+                                     </div>
+                                  </div>
+                               </a>
+                            </div>
+                         </div>
+                      </div>
+                      <div class="col-2 d-flex justify-content-end">
+                         <img class="card-img-top imgNota" src="{{res.profilePicture}}" alt="Card image cap">
+                      </div>
+                      <div class="row">
+                         <button class="btn btn-warning buttonBorrar" (click)="onDelete(res)">Eliminar</button>
+                         <button class="btn btn-warning buttonBorrar" (click)="onUpdate(res)">Actualizar</button>
+                      </div>
+                   </div>
+                </div>
+             </div>
+          </div>
+       </div>
+    </div>
+    <div class=" col-3">
+ 
+    </div>
+ </div>
